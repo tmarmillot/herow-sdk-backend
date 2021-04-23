@@ -15,9 +15,9 @@ app.use((req, res, next) => {
 app.post('/auth/authorize/token', (req, res) => {
 
     // those fields are mandatory
-    var client_id = req.body.client_id;
-    var client_secret = req.body.client_secret;
-    var grant_type = req.body.grant_type; // password
+    var client_id = req.body.clientId;
+    var client_secret = req.body.clientSecret;
+    var grant_type = req.body.grantType; // password
     var username = req.body.username;
     var password = req.body.password;
 
@@ -30,11 +30,11 @@ app.post('/auth/authorize/token', (req, res) => {
     }
 
     if (client_id == null || client_secret == null) {
-        return res.status(500).send("client_id and client_secret are mandatory.").end();
+        return res.status(500).send("clientId and clientSecret are mandatory.").end();
     }
 
     if (grant_type != "password") {
-        return res.status(500).send("grant_type must set to password.").end();
+        return res.status(500).send("grantType must set to password.").end();
     }
 
     if (username == null || password == null) {
